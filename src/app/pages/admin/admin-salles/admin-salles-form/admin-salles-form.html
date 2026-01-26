@@ -1,0 +1,39 @@
+<div class="salle-form-wrapper">
+  <div class="container" style="max-width: 650px;">
+    <div class="card shadow-sm salle-form-card">
+      <div class="card-body salle-form-body">
+        <h3 class="text-center fw-bold salle-form-title">
+          {{ isEdit ? 'Modifier la salle' : 'Ajouter une salle' }}
+        </h3>
+
+        <form (ngSubmit)="sauvegarder()" #f="ngForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input class="form-control" [(ngModel)]="salle.nom" name="nom" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Capacité</label>
+            <input class="form-control" type="number" [(ngModel)]="salle.capacite" name="capacite" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Statut</label>
+            <select class="form-select" [(ngModel)]="salle.statut" name="statut">
+              <option value="active">active</option>
+              <option value="inactive">inactive</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="salle.description" name="description"></textarea>
+          </div>
+
+          <button class="btn btn-primary w-100 mb-2" [disabled]="f.invalid">Sauvegarder</button>
+          <a class="btn btn-outline-secondary w-100" [routerLink]="['/admin/salles']">Annuler</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

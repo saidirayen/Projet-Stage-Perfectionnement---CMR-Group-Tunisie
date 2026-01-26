@@ -1,0 +1,50 @@
+<div class="admin-users">
+  <div class="container">
+    <div class="admin-users-header admin-enter-up">
+      <h3 class="fw-bold mb-0">Gestion des Utilisateurs</h3>
+      <a class="btn btn-primary" [routerLink]="['/admin/users/add']">Ajouter un utilisateur</a>
+    </div>
+
+    <div class="table-responsive admin-enter-up admin-delay-1">
+      <table class="table table-hover align-middle text-center">
+        <thead class="table-light">
+          <tr>
+            <th>Username</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>E-mail</th>
+            <th>Mot de passe</th>
+            <th>Téléphone</th>
+            <th style="width: 180px;">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (u of users; track u.id_u) {
+            <tr>
+              <td class="fw-semibold">{{ u.username }}</td>
+              <td class="text-muted">{{ u.nom }}</td>
+              <td class="text-muted">{{ u.prenom }}</td>
+              <td class="text-muted">{{ u.email }}</td>
+              <td class="text-muted">{{ u.password }}</td>
+              <td class="text-muted">{{ u.tel }}</td>
+
+              <td>
+                <div class="d-flex justify-content-center gap-2 flex-nowrap">
+                  <a class="btn btn-sm btn-outline-warning"
+                     [routerLink]="['/admin/users/edit', u.id_u]">
+                    Modifier
+                  </a>
+                  <button class="btn btn-sm btn-outline-danger"
+                          (click)="supprimer(u.id_u)">
+                    Supprimer
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

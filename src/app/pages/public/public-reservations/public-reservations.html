@@ -1,0 +1,43 @@
+<div class="public-reservations">
+  <div class="container">
+    <div class="reservations-header enter-up">
+      <h3 class="fw-bold mb-0">Mes réservations</h3>
+      <a class="btn btn-primary" [routerLink]="['/public/reserver/add']">Nouvelle réservation</a>
+    </div>
+
+    <div class="row g-3 reservations-grid enter-up">
+      @for (r of reservations; track r.id_r) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card reservation-card shadow-sm h-100">
+            <div class="card-body reservation-body">
+              <h5 class="reservation-title">{{ r.salle_nom }}</h5>
+
+              <div class="reservation-details">
+                <p class="text-muted">
+                  <span class="fw-semibold">Date :</span> {{ r.date_res }}
+                </p>
+                <p class="text-muted">
+                  <span class="fw-semibold">Début :</span> {{ r.heure_deb }}
+                </p>
+                <p class="text-muted mb-0">
+                  <span class="fw-semibold">Fin :</span> {{ r.heure_fin }}
+                </p>
+              </div>
+              <div class="reservation-actions">
+                <a class="btn btn-outline-warning btn-sm"
+                   [routerLink]="['/public/reservations/edit', r.id_r]">
+                  Modifier
+                </a>
+                <button class="btn btn-outline-danger btn-sm"
+                        (click)="supprimer(r.id_r)">
+                  Annuler
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

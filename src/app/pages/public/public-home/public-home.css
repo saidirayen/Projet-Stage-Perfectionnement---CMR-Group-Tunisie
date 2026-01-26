@@ -1,0 +1,235 @@
+.public-home {
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  margin: 50px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf3 100%);
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.home-section {
+  margin-bottom: 2rem;
+}
+
+.home-header {
+  margin-bottom: 1.25rem;
+}
+
+.welcome-card {
+  border-radius: 18px;
+  padding: 2.25rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d6efd 0%, #764ba2 100%);
+}
+
+.welcome-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.welcome-subtitle {
+  opacity: 0.9;
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+.welcome-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.welcome-icon i {
+  font-size: 1.8rem;
+}
+
+.public-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.public-cards a {
+  color: inherit !important;
+}
+
+.public-card {
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-align: center;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.public-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.public-card:hover::before {
+  transform: scaleX(1);
+}
+
+.public-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #d8e0ee;
+}
+
+.public-card-body {
+  padding: 2rem 1.5rem;
+}
+
+.public-icon {
+  display: inline-block;
+  margin-bottom: 6px;
+  transition: transform 0.3s ease;
+}
+
+.public-card:hover .public-icon {
+  transform: scale(1.08);
+}
+
+.public-accent-primary::before {
+  background: linear-gradient(90deg, #0d6efd 0%, #764ba2 100%);
+}
+
+.public-accent-danger::before {
+  background: linear-gradient(90deg, #dc3545 0%, #ff6b6b 100%);
+}
+
+.public-accent-success::before {
+  background: linear-gradient(90deg, #198754 0%, #2ecc71 100%);
+}
+
+.public-stat {
+  border: none;
+  overflow: hidden;
+  background: #fff;
+}
+
+.stat-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.stat-body {
+  padding: 2rem;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stat-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+}
+
+.stat-icon i {
+  font-size: 1.4rem;
+}
+
+.stat-count {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+  margin-right: 0.5rem;
+}
+
+.rec-bubble {
+  position: fixed;
+  left: 25px;
+  bottom: 70px;
+  width: 55px;
+  height: 55px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #0d6efd;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rec-bubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.rec-bubble i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.enter-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.enter-delay-1 { animation-delay: 60ms; }
+.enter-delay-2 { animation-delay: 120ms; }
+.enter-delay-3 { animation-delay: 180ms; }
+.enter-delay-4 { animation-delay: 240ms; }
+.enter-delay-5 { animation-delay: 300ms; }
+.enter-delay-6 { animation-delay: 360ms; }
+.enter-delay-7 { animation-delay: 420ms; }
+.enter-delay-8 { animation-delay: 480ms; }
+
+@keyframes cardEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

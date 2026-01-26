@@ -1,0 +1,67 @@
+<div class="contact-wrapper">
+  <div class="container" style="max-width: 800px;">
+    <div class="card shadow-sm contact-card">
+      <div class="card-body p-4">
+
+        <div class="text-center mb-4">
+          <img src="assets/logo.jpg" width="100" alt="Logo" class="mb-3">
+          <h3 class="fw-bold mb-1">Contactez-nous</h3>
+          <p class="text-muted small mb-0">Envoyez un message à l'administration.</p>
+        </div>
+
+        <form (ngSubmit)="envoyer()" #f="ngForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Votre message</label>
+            <textarea
+              class="form-control"
+              rows="8"
+              name="contenu"
+              [(ngModel)]="contenu"
+              required
+              #contenuCtrl="ngModel"
+              placeholder="Décrivez votre demande ou problème..."></textarea>
+          </div>
+
+          <div class="text-center mt-3">
+            <button class="btn btn-primary w-100 mb-2" [disabled]="f.invalid">Envoyer</button>
+            <a class="btn btn-outline-secondary w-100" [routerLink]="['/']">Retour</a>
+          </div>
+        </form>
+
+        <hr class="my-3">
+
+        <div class="help-box">
+          <div class="help-title">
+            <i class="bi bi-info-circle me-2"></i>Besoin d'aide ?
+          </div>
+
+          <div class="help-items">
+            <div class="help-item">
+              <i class="bi bi-telephone"></i>
+              <div class="help-text">
+                <div class="help-label">Téléphone</div>
+                <div class="help-value">+216 27 256 925</div>
+              </div>
+            </div>
+
+            <div class="help-item">
+              <i class="bi bi-envelope"></i>
+              <div class="help-text">
+                <div class="help-label">E-mail</div>
+                <div class="help-value">admin@cmr-group.tn</div>
+              </div>
+            </div>
+
+            <div class="help-item">
+              <i class="bi bi-geo-alt"></i>
+              <div class="help-text">
+                <div class="help-label">Adresse</div>
+                <div class="help-value">CMR Group Tunisie - Z.I. El Mghira - Fouchana Ben Arous</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

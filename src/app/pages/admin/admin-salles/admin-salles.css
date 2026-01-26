@@ -1,0 +1,76 @@
+.admin-salles {
+  padding: 50px 0;
+  margin: 40px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf3 100%);
+}
+
+.admin-salles-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.salle-card {
+  border-radius: 15px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 1rem;
+  border: none;
+}
+
+.salle-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.salle-body {
+  padding: 2rem;
+}
+
+.salle-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.salle-title {
+  font-weight: 700;
+  margin: 0;
+}
+
+.salle-badge {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  text-transform: lowercase;
+}
+
+.salle-equip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.salle-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.admin-salles .enter-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardEntrance 0.6s ease-out forwards;
+}
+
+@keyframes cardEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,60 @@
+<div class="admin-salles">
+  <div class="container">
+    <div class="admin-salles-header enter-up">
+      <h3 class="fw-bold mb-0">Gestion des Salles</h3>
+      <a class="btn btn-primary" [routerLink]="['/admin/salles/add']">
+        Ajouter une salle
+      </a>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-12">
+        @for (s of salles; track s.id_s) {
+          <div class="enter-up">
+            <div class="card salle-card shadow-sm">
+              <div class="card-body salle-body">
+                <div class="salle-top">
+                  <h5 class="salle-title">{{ s.nom }}</h5>
+                  <span class="badge salle-badge" [ngClass]="getStatutClass(s.statut)">
+                    {{ s.statut }}
+                  </span>
+                </div>
+
+                <div class="text-muted mt-2">
+                  <span class="fw-semibold">Capacité :</span> {{ s.capacite }}
+                </div>
+
+                <div class="text-muted mt-2">
+                  <span class="fw-semibold">Description :</span>
+                  {{ s.description || 'Aucune Description' }}
+                </div>
+
+                <div class="text-muted fw-semibold mt-2">Équipements :</div>
+                <div class="salle-equip">
+                  @if(!s.equipements){
+                    <span class="text-muted">Aucun équipement</span>
+                  } @else {
+                    @for(eq of equipList(s); track eq) {
+                      <span class="badge bg-secondary">{{ eq }}</span>
+                    }
+                  }
+                </div>
+
+                <div class="salle-actions">
+                  <a class="btn btn-outline-warning btn-sm"
+                     [routerLink]="['/admin/salles/edit', s.id_s]">
+                    Modifier
+                  </a>
+                  <button class="btn btn-outline-danger btn-sm"
+                          (click)="supprimer(s.id_s)">
+                    Supprimer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

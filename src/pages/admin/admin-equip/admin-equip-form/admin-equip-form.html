@@ -1,0 +1,36 @@
+<div class="equip-form-wrapper">
+  <div class="container" style="max-width: 650px;">
+    <div class="card shadow-sm equip-form-card">
+      <div class="card-body equip-form-body">
+        <h3 class="text-center fw-bold equip-form-title">
+          {{ isEdit ? "Modifier l'équipement" : "Ajouter un équipement" }}
+        </h3>
+
+        <form (ngSubmit)="sauvegarder()" #f="ngForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input class="form-control" [(ngModel)]="equip.nom" name="nom" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input class="form-control" [(ngModel)]="equip.desc_equip" name="desc_equip" placeholder="Aucune Description">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Salle (optionnel)</label>
+            <select class="form-select" [(ngModel)]="equip.id_s" name="id_s">
+              <option [ngValue]="''">Non affecté</option>
+              @for (s of salles; track s.id_s) {
+                <option [ngValue]="s.id_s">{{ s.nom }}</option>
+              }
+            </select>
+          </div>
+
+          <button class="btn btn-primary w-100 mb-2" [disabled]="f.invalid">Sauvegarder</button>
+          <a class="btn btn-outline-secondary w-100" [routerLink]="['/admin/equipements']">Annuler</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="admin-res-form-wrapper">
+  <div class="container" style="max-width: 650px;">
+    <div class="card shadow-sm admin-res-form-card">
+      <div class="card-body admin-res-form-body">
+        <h3 class="text-center fw-bold admin-res-form-title">
+          {{ isEdit ? "Modifier la réservation" : "Ajouter une réservation" }}
+        </h3>
+        <form (ngSubmit)="sauvegarder()" #f="ngForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Utilisateur</label>
+            <select
+              class="form-select"
+              [(ngModel)]="reservation.username"
+              name="username"
+              required>
+              <option [ngValue]="''" disabled>- Sélectionner un utilisateur -</option>
+              @for (u of users; track u.id_u) {
+                <option [ngValue]="u.username">{{ u.username }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Salle</label>
+            <select
+              class="form-select"
+              [(ngModel)]="reservation.id_s"
+              (ngModelChange)="onChange()"
+              name="id_s"
+              required>
+              <option [ngValue]="null" disabled>- Sélectionner une salle -</option>
+              @for (s of salles; track s.id_s) {
+                @if (s.statut === 'active') {
+                  <option [ngValue]="s.id_s">{{ s.nom }}</option>
+                } @else {
+                  <option [ngValue]="s.id_s" disabled>{{ s.nom }} (Indisponible)</option>
+                }
+              }
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input
+              class="form-control"
+              type="date"
+              [(ngModel)]="reservation.date_res"
+              (ngModelChange)="onChange()"
+              name="date_res"
+              required
+              min="2000-01-01"
+              max="2099-12-31"
+            />
+          </div>
+
+          @if (reservation.id_s && reservation.date_res) {
+            <div class="reserved-box mb-3">
+              <div class="reserved-title">
+                <i class="bi bi-clock-history me-2"></i>
+                Créneaux déjà réservés
+              </div>
+
+              @if (reserved.length === 0) {
+                <div class="reserved-empty">
+                  Aucune réservation pour cette salle à cette date.
+                </div>
+              } @else {
+                <div class="reserved-list">
+                  @for (r of reserved; track r.heure_deb + '-' + r.heure_fin) {
+                    <span class="reserved-chip">
+                      {{ r.heure_deb }} - {{ r.heure_fin }}
+                    </span>
+                  }
+                </div>
+              }
+            </div>
+          }
+
+          <div class="mb-3">
+            <label class="form-label">Heure début</label>
+            <input
+              class="form-control"
+              type="time"
+              [(ngModel)]="reservation.heure_deb"
+              name="heure_deb"
+              min="08:00"
+              max="18:30"
+              step="1800"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Heure fin</label>
+            <input
+              class="form-control"
+              type="time"
+              [(ngModel)]="reservation.heure_fin"
+              name="heure_fin"
+              min="08:30"
+              max="19:00"
+              step="1800"
+              required
+            />
+          </div>
+
+          <button class="btn btn-primary w-100 mb-2" [disabled]="f.invalid">
+            Sauvegarder
+          </button>
+
+          <a class="btn btn-outline-secondary w-100" [routerLink]="['/admin/reservations']">
+            Annuler
+          </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

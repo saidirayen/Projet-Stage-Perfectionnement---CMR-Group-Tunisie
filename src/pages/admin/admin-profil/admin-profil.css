@@ -1,0 +1,110 @@
+.admin-profile {
+  padding: 50px 0;
+  margin: 50px 0;
+}
+
+.admin-profile-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admin-profile-top {
+  text-align: center;
+  padding: 1.75rem 2rem 1.25rem;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.12), rgba(108, 117, 125, 0.10));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.admin-profile-avatar {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(13, 110, 253, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+  background: #fff;
+  margin-bottom: 0.9rem;
+}
+
+.admin-profile-username {
+  margin-bottom: 0.5rem;
+}
+
+.admin-profile-badge {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.admin-profile-body {
+  padding: 1.5rem;
+}
+
+.admin-profile-info {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-profile-item {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-profile-ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 110, 253, 0.10);
+  border: 1px solid rgba(13, 110, 253, 0.15);
+  color: #0d6efd;
+}
+
+.admin-profile-ico i {
+  font-size: 1.15rem;
+}
+
+.admin-profile-text {
+  min-width: 0;
+}
+
+.admin-profile-label {
+  font-size: 0.82rem;
+  color: #6c757d;
+  margin-bottom: 2px;
+}
+
+.admin-profile-value {
+  font-weight: 600;
+  color: #212529;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-profile-actions {
+  margin-top: 1.25rem;
+}
+
+.admin-enter-up {
+  opacity: 0;
+  translate: 0 20px;
+  animation: adminEnterUp 0.6s ease-out forwards;
+}
+
+@keyframes adminEnterUp {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

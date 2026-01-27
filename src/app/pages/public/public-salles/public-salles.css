@@ -2,6 +2,7 @@
   padding: 50px 0;
   margin: 40px 0;
   background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf3 100%);
+  min-height: calc(100vh - 56px - 30px);
 }
 
 .salles-header {

@@ -11,30 +11,16 @@
         <form (ngSubmit)="onLogin()" #f="ngForm" novalidate>
           <div class="mb-3">
             <label for="username" class="form-label">Nom d'utilisateur</label>
-            <input
-              id="username"
-              class="form-control"
-              name="username"
-              [(ngModel)]="username"
-              required
-              #u="ngModel"
-              placeholder="Entrer votre nom d'utilisateur">
+            <input id="username" class="form-control" name="username" [(ngModel)]="username" required #u="ngModel" placeholder="Entrer votre nom d'utilisateur">
             @if(u.touched && u.invalid){
               <div class="error">Ce champ est obligatoire!</div>
             }
           </div>
 
-          <div class="mb-3">
+          <div class="mb-3 password-field">
             <label for="password" class="form-label">Mot de passe</label>
-            <input
-              id="password"
-              class="form-control"
-              name="password"
-              type="password"
-              [(ngModel)]="password"
-              required
-              #p="ngModel"
-              placeholder="Entrer votre mot de passe">
+            <input id="password" class="form-control" name="password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" required #p="ngModel" placeholder="Entrer votre mot de passe">
+            <i class="bi toggle-eye" [ngClass]="showPassword ? 'bi-eye' : 'bi-eye-slash'" (click)="showPassword = !showPassword"></i>
             @if(p.touched && p.invalid){
               <div class="error">Ce champ est obligatoire!</div>
             }

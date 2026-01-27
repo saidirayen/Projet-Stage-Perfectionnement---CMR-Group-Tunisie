@@ -15,6 +15,10 @@ export class PublicProfilPassword implements OnInit {
   newPassword = '';
   confirmPassword = '';
 
+  showOld = false;
+  showNew = false;
+  showConfirm = false;
+
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {

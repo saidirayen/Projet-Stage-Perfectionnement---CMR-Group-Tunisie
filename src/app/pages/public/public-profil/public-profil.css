@@ -1,6 +1,8 @@
 .public-profile {
   padding: 50px 0;
-  margin: 50px;
+  margin: 50px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf3 100%);
+  min-height: calc(100vh - 56px - 30px);
 }
 
 .profile-card {
@@ -12,7 +14,7 @@
 .profile-top {
   text-align: center;
   padding: 1.75rem 2rem 1.25rem;
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.12), rgba(108, 117, 125, 0.10));
+  background: linear-gradient(135deg, rgba(111, 66, 193, 0.18), rgba(13, 110, 253, 0.10));
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 

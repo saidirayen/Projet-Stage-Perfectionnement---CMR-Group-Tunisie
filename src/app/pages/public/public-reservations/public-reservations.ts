@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class PublicReservations implements OnInit {
   reservations: any[] = [];
   id_u = 0;
+  loading = true;
 
   constructor(
     private resSvc: ReservationService,
@@ -20,7 +21,7 @@ export class PublicReservations implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // const username = localStorage.getItem('username') || '';
+    this.loading = true;
     this.authSvc.getSession().subscribe({
         next: (user: any) => {
           if (!user || !user.username) {
@@ -42,8 +43,12 @@ export class PublicReservations implements OnInit {
   }
 
   charger() {
+    this.loading = true;
     this.resSvc.getReservationsByUser(this.id_u).subscribe({
-      next: (res) => (this.reservations = res),
+      next: (res) => {
+        this.reservations = res;
+        this.loading = false;
+      },
       error: () => alert('Erreur serveur'),
     });
   }

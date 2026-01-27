@@ -1,7 +1,8 @@
 .public-reservations {
   padding: 50px 0;
-  margin: 40px 0;
+  margin-top: 40px;
   background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf3 100%);
+  min-height: calc(100vh - 56px - 30px);
 }
 
 .reservations-header {

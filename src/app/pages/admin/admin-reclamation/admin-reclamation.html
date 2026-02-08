@@ -1,45 +1,37 @@
 <div class="admin-recs">
   <div class="container">
     <div class="admin-recs-header text-center admin-enter-up">
-      <h2 class="fw-bold mb-2">Notifications</h2>
+      <h2 class="fw-bold mb-2">Réclamations</h2>
       <p class="text-muted mb-0">Messages et réclamations envoyés à l'administration</p>
     </div>
+
     @if(recs.length === 0){
-      <div class="alert alert-info text-center admin-enter-up admin-delay-1">
-        Aucune notification pour le moment.
-      </div>
+      <div class="alert alert-info text-center admin-enter-up admin-delay-1">Aucune réclamation pour le moment.</div>
     } @else {
       <div class="admin-recs-list">
         @for (r of recs; track r.id_rec) {
           <div class="admin-enter-up admin-delay-1">
-            <div class="admin-rec-card"
-                 [ngClass]="r.traitement == 0 ? 'rec-nontraite' : 'rec-traite'">
+            <div class="admin-rec-card" [ngClass]="r.traitement == 0 ? 'rec-nontraite' : 'rec-traite'">
               <div class="admin-rec-top">
                 <div class="admin-rec-user">
                   <span class="admin-rec-name">
-                    @if(r.username){
                       {{ r.nom }} {{ r.prenom }}
                       <span class="admin-rec-username">(@{{ r.username }})</span>
-                    } @else {
-                      Utilisateur anonyme
-                      <span class="admin-rec-username">(@anonyme)</span>
-                    }
                   </span>
 
                   <span class="badge admin-rec-badge" [ngClass]="r.traitement == 0 ? 'bg-warning text-dark' : 'bg-success'">
                     {{ r.traitement == 0 ? 'En attente' : 'Traité' }}
                   </span>
                 </div>
-                <div class="admin-rec-date text-muted small">
-                  Le: {{ r.date_rec }}
-                </div>
+
+                <div class="admin-rec-date text-muted small">Le: {{ r.date_rec }}</div>
               </div>
+
               <div class="admin-rec-content">{{ r.contenu }}</div>
+
               @if(r.traitement == 0){
                 <div class="admin-rec-actions">
-                  <button class="btn btn-sm btn-warning fw-semibold px-4" (click)="marquerTraite(r)">
-                    Marquer comme traité
-                  </button>
+                  <button class="btn btn-sm btn-warning fw-semibold px-4" (click)="marquerTraite(r)">Marquer comme traité</button>
                 </div>
               }
             </div>

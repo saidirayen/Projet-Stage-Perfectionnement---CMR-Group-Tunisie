@@ -20,6 +20,12 @@ export class PublicSalles implements OnInit {
     });
   }
 
+  imageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.onerror = null;
+    img.src = 'assets/salles/default.jpg';
+  }
+
   getStatutClass(statut: string): string {
     return statut === 'active' ? 'bg-success' : 'bg-secondary';
   }

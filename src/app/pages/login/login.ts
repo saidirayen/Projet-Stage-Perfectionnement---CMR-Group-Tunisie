@@ -14,8 +14,21 @@ export class Login {
   username="";
   password="";
   showPassword = false;
+  showContact = false;
+
+  afficherContact(e: Event): void {
+    this.showContact = true;
+  }
+
+  fermerContact(): void {
+    this.showContact = false;
+  }
 
   constructor(private auth: AuthService, private router: Router){}
+
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   onLogin(){
   this.auth.login(this.username,this.password)

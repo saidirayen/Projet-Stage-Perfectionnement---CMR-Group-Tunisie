@@ -19,7 +19,21 @@ export class PublicProfilPassword implements OnInit {
   showNew = false;
   showConfirm = false;
 
+  passwordPattern = '^(?=[A-Z])(?=.*[^A-Za-z0-9]).*$';
+
   constructor(private auth: AuthService, private router: Router) {}
+
+  togglePasswordOld(): void {
+    this.showOld = !this.showOld;
+  }
+
+  togglePasswordNew(): void {
+    this.showNew = !this.showNew;
+  }
+
+  togglePasswordConfirm(): void {
+    this.showConfirm = !this.showConfirm;
+  }
 
   ngOnInit(): void {
     this.auth.getSession().subscribe({

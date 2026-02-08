@@ -11,32 +11,32 @@
             <label class="form-label">Username</label>
             <input class="form-control" [(ngModel)]="user.username" name="username" required #username="ngModel">
             @if(username.touched && username.invalid){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 
           <div class="mb-3">
             <label class="form-label">E-mail</label>
-            <input class="form-control" type="email" [(ngModel)]="user.email" name="email"
-                   placeholder="exemple@gmail.com" required
-                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #email="ngModel">
+            <input class="form-control" type="email" [(ngModel)]="user.email" name="email" placeholder="exemple@gmail.com" required [pattern]="emailPattern" #email="ngModel">
             @if(email.invalid && email.touched && email.errors?.['pattern']){
-              <span class="admin-user-error">E-mail invalid!</span>
+              <span class="error">E-mail invalid!</span>
             }
             @else if(email.touched && email.invalid){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 
           <div class="mb-3">
             <label class="form-label">Mot de passe</label>
-            <input class="form-control" type="text" [(ngModel)]="user.password" name="password"
-                   minlength="8" required #password="ngModel">
-            @if(password.invalid && password.touched && password.errors?.['minlength']){
-              <span class="admin-user-error">Le mot de passe doit contenir au minimum 8 caractères!</span>
+            <input class="form-control" type="text" [(ngModel)]="user.password" name="password" minlength="8" [pattern]="passwordPattern" required #password="ngModel">
+            @if(password.touched && password.errors?.['minlength']){
+              <span class="error">Le mot de passe doit contenir au minimum 8 caractères!</span>
             }
-            @else if(password.invalid && password.touched){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+            @else if(password.touched && password.errors?.['pattern']){
+              <span class="error">Le mot de passe doit commencer par une majuscule et contenir au moins un caractère spécial (ex: ! @ # $ % & * - _)</span>
+            }
+            @else if(password.touched && password.invalid){
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 
@@ -44,7 +44,7 @@
             <label class="form-label">Nom</label>
             <input class="form-control" [(ngModel)]="user.nom" name="nom" required #nom="ngModel">
             @if(nom.touched && nom.invalid){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 
@@ -52,19 +52,18 @@
             <label class="form-label">Prénom</label>
             <input class="form-control" [(ngModel)]="user.prenom" name="prenom" required #prenom="ngModel">
             @if(prenom.touched && prenom.invalid){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 
           <div class="mb-3">
             <label class="form-label">Téléphone (+216)</label>
-            <input class="form-control" [(ngModel)]="user.tel" name="tel" required minlength="8" maxlength="8"
-                   pattern="[0-9]{8}" placeholder="XXXXXXXX" #tel="ngModel">
+            <input class="form-control" [(ngModel)]="user.tel" name="tel" required minlength="8" maxlength="8" pattern="[0-9]{8}" placeholder="XXXXXXXX" #tel="ngModel">
             @if(tel.invalid && tel.touched && tel.errors?.['pattern']){
-              <span class="admin-user-error">Le numéro de téléphone doit contenir uniquement 8 chiffres!</span>
+              <span class="error">Le numéro de téléphone doit contenir uniquement 8 chiffres!</span>
             }
             @else if(tel.invalid && tel.touched){
-              <span class="admin-user-error">Ce champ est obligatoire!</span>
+              <span class="error">Ce champ est obligatoire!</span>
             }
           </div>
 

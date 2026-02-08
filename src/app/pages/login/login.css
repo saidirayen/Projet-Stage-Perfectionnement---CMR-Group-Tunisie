@@ -6,11 +6,11 @@
   background:
     linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     url("/assets/cmrt.jpg");
-
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 20px;
+  position: relative;
 }
 
 .login-card {
@@ -30,11 +30,11 @@
 }
 
 .password-field {
-  position: relative; 
+  position: relative;
 }
 
 .password-field .form-control {
-  padding-right: 42px; 
+  padding-right: 42px;
 }
 
 .toggle-eye {
@@ -48,7 +48,7 @@
 }
 
 .toggle-eye:hover {
-  color: #0d6efd; 
+  color: #0d6efd;
 }
 
 .form-label {
@@ -116,6 +116,7 @@
 
 .contact-link:hover {
   text-decoration: underline;
+  cursor: pointer;
   color: #0b5ed7;
 }
 
@@ -143,4 +144,78 @@
   background: #0d6efd;
   color: #fff;
   transform: translateY(-2px);
+}
+
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 9999;
+}
+
+.contact-popup {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  border: none;
+  animation: popupIn 0.18s ease-out forwards;
+}
+
+@keyframes popupIn {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contact-popup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.help-items {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.help-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 0.75rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.help-item i {
+  font-size: 1.15rem;
+  color: #0d6efd;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 110, 253, 0.10);
+  border: 1px solid rgba(13, 110, 253, 0.15);
+}
+
+.help-label {
+  font-size: 0.82rem;
+  color: #6c757d;
+}
+
+.help-value {
+  font-weight: 600;
+  color: #212529;
 }

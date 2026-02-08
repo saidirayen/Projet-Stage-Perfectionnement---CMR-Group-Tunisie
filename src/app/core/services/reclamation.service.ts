@@ -17,16 +17,6 @@ export class ReclamationService {
     );
   }
 
-  addReclamationAnonyme(contenu: string) {
-    const f = new FormData();
-    f.append('contenu', contenu);
-    return this.http.post<any>(
-      this.API_URL + '?controller=reclamation&action=addAnonyme',
-      f,
-      { withCredentials: true }
-    );
-  }
-
   getReclamations() {
     return this.http.get<any[]>(
       this.API_URL + '?controller=reclamation&action=getAll',

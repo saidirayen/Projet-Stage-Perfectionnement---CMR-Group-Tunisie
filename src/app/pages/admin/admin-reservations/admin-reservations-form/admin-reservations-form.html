@@ -33,7 +33,7 @@
                 @if (s.statut === 'active') {
                   <option [ngValue]="s.id_s">{{ s.nom }}</option>
                 } @else {
-                  <option [ngValue]="s.id_s" disabled>{{ s.nom }} (Indisponible)</option>
+                  <option [ngValue]="s.id_s" disabled>{{ s.nom }}</option>
                 }
               }
             </select>

@@ -1,23 +1,16 @@
 <div class="public-home">
   <div class="container">
-
     <section class="home-section">
       <div class="welcome-card shadow-sm enter-up">
         <div class="welcome-bg"></div>
 
         <div class="welcome-content">
           <div class="welcome-text">
-            <h2 class="welcome-title">
-              Bienvenue, <span class="fw-bold">{{ prenom }} {{ nom }} !</span>
-            </h2>
-            <p class="welcome-subtitle">
-              Réservez facilement une salle, consultez vos réservations et gérez-les à tout moment.
-            </p>
+            <h2 class="welcome-title">Bienvenue, <span class="fw-bold">{{ prenom }} {{ nom }} !</span></h2>
+            <p class="welcome-subtitle">Réservez facilement une salle, consultez vos réservations et gérez-les à tout moment.</p>
           </div>
 
-          <div class="welcome-icon">
-            <i class="bi bi-calendar2-check"></i>
-          </div>
+          <div class="welcome-icon"><i class="bi bi-calendar2-check"></i></div>
         </div>
       </div>
     </section>
@@ -69,14 +62,11 @@
 
       <div class="row justify-content-center">
         <div class="col-12 col-lg-11">
-
           <div class="enter-up enter-delay-6">
             <div class="card stat-card shadow-sm public-stat">
               <div class="card-body stat-body stat-row">
                 <div class="stat-left">
-                  <div class="stat-icon bg-primary-subtle">
-                    <i class="bi bi-clock-history text-primary"></i>
-                  </div>
+                  <div class="stat-icon bg-primary-subtle"><i class="bi bi-clock-history text-primary"></i></div>
                   <div>
                     <h5 class="fw-bold mb-1">Mes réservations aujourd'hui</h5>
                     <p class="text-muted mb-0">Vos réservations programmées pour aujourd'hui</p>
@@ -91,9 +81,7 @@
             <div class="card stat-card shadow-sm public-stat">
               <div class="card-body stat-body stat-row">
                 <div class="stat-left">
-                  <div class="stat-icon bg-danger-subtle">
-                    <i class="bi bi-calendar-week text-danger"></i>
-                  </div>
+                  <div class="stat-icon bg-danger-subtle"><i class="bi bi-calendar-week text-danger"></i></div>
                   <div>
                     <h5 class="fw-bold mb-1">Mes réservations à venir</h5>
                     <p class="text-muted mb-0">Toutes vos réservations futures</p>
@@ -108,9 +96,7 @@
             <div class="card stat-card shadow-sm public-stat">
               <div class="card-body stat-body stat-row">
                 <div class="stat-left">
-                  <div class="stat-icon bg-success-subtle">
-                    <i class="bi bi-building-check text-success"></i>
-                  </div>
+                  <div class="stat-icon bg-success-subtle"><i class="bi bi-building-check text-success"></i></div>
                   <div>
                     <h5 class="fw-bold mb-1">Salles disponibles aujourd'hui</h5>
                     <p class="text-muted mb-0">Salles libres pour aujourd'hui</p>
@@ -120,14 +106,10 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <a class="rec-bubble" [routerLink]="['/public/reclamation']" title="Faire une réclamation">
-      <i class="bi bi-exclamation-triangle"></i>
-    </a>
-
+    <a class="rec-bubble" [routerLink]="['/public/reclamation']" title="Faire une réclamation"><i class="bi bi-exclamation-triangle"></i></a>
   </div>
 </div>

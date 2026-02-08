@@ -31,6 +31,10 @@
 
               <td>
                 <div class="d-flex justify-content-center gap-2 flex-nowrap">
+                  @if(isPast(r)){
+                    <span class="badge bg-secondary">Passé</span>
+                  }
+                  @else{
                   <a class="btn btn-sm btn-outline-warning"
                      [routerLink]="['/admin/reservations/edit', r.id_r]">
                     Modifier
@@ -39,6 +43,7 @@
                           (click)="supprimer(r.id_r)">
                     Supprimer
                   </button>
+                  }
                 </div>
               </td>
             </tr>

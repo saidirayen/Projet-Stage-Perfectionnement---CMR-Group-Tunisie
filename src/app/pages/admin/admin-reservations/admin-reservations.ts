@@ -11,6 +11,14 @@ export class AdminReservations implements OnInit {
   reservations: any[] = [];
   constructor(private resSvc: ReservationService) {}
 
+  isPast(r: any): boolean {
+    const now = new Date();
+    const date = new Date(r.date_res);
+    const [h,m] = r.heure_fin.split(':');
+    date.setHours(+h,+m,0,0);
+    return date<now;
+  }
+
   ngOnInit(): void {
     this.charger();
   }

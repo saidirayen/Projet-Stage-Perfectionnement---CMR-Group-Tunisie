@@ -14,8 +14,8 @@ export class PublicReserver implements OnInit {
   reservation: any = {
     id_r: 0,
     id_u: 0,
-    id_s: null,        // ✅ null (important)
-    date_res: '',      // input date gives string YYYY-MM-DD
+    id_s: null,
+    date_res: '',
     heure_deb: '',
     heure_fin: '',
   };

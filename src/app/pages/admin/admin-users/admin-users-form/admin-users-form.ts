@@ -12,6 +12,9 @@ export class AdminUsersForm implements OnInit {
   user: any = { id_u: 0, username: '', email: '', password: '', nom: '', prenom: '', tel: '' };
   isEdit = false;
 
+  passwordPattern = "^(?=[A-Z])(?=.*[^A-Za-z0-9]).*$";
+  emailPattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
   constructor(private route: ActivatedRoute, private router: Router, private userSvc: UtilisateurService) {}
 
   ngOnInit(): void {

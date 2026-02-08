@@ -20,20 +20,18 @@
           <div class="mb-3 password-field">
             <label for="password" class="form-label">Mot de passe</label>
             <input id="password" class="form-control" name="password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" required #p="ngModel" placeholder="Entrer votre mot de passe">
-            <i class="bi toggle-eye" [ngClass]="showPassword ? 'bi-eye' : 'bi-eye-slash'" (click)="showPassword = !showPassword"></i>
+            <i class="bi toggle-eye" [ngClass]="showPassword ? 'bi-eye' : 'bi-eye-slash'" (click)="togglePassword()"></i>
             @if(p.touched && p.invalid){
               <div class="error">Ce champ est obligatoire!</div>
             }
           </div>
 
-          <button type="submit" class="btn btn-primary w-100 mt-2" [disabled]="f.invalid">
-            Se connecter
-          </button>
+          <button type="submit" class="btn btn-primary w-100 mt-2" [disabled]="f.invalid">Se connecter</button>
 
           <div class="text-center mt-3">
             <p class="text-muted small mb-2">
-              Besoin d'aide?
-              <a class="contact-link" [routerLink]="['/contact']">Contactez-nous!</a>
+              Besoin d'aide ?
+              <a class="contact-link" (click)="afficherContact($event)">Contactez-nous!</a>
             </p>
           </div>
         </form>
@@ -41,15 +39,9 @@
         <hr class="my-3">
 
         <div class="social-links mb-3">
-          <a href="https://www.cmr-group.com" target="_blank" aria-label="Site Web CMR">
-            <i class="bi bi-globe"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/cmr-tunisie" target="_blank" aria-label="LinkedIn CMR">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="https://www.youtube.com/@cmr-group" target="_blank" aria-label="YouTube CMR">
-            <i class="bi bi-youtube"></i>
-          </a>
+          <a href="https://www.cmr-group.com" target="_blank" aria-label="Site Web CMR"><i class="bi bi-globe"></i></a>
+          <a href="https://www.linkedin.com/company/cmr-tunisie" target="_blank" aria-label="LinkedIn CMR"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/@cmr-group" target="_blank" aria-label="YouTube CMR"><i class="bi bi-youtube"></i></a>
         </div>
 
         <div class="text-center">
@@ -58,4 +50,50 @@
       </div>
     </div>
   </div>
+  @if(showContact){
+    <div class="contact-overlay" (click)="fermerContact()">
+      <div class="contact-popup card shadow" (click)="$event.stopPropagation()">
+        <div class="card-body p-4">
+          <div class="contact-popup-header">
+            <div>
+              <h5 class="fw-bold mb-1">Contactez-nous</h5>
+              <p class="text-muted small mb-0">Informations de support</p>
+            </div>
+          </div>
+
+          <div class="help-items mt-3">
+            <div class="help-item">
+              <i class="bi bi-telephone"></i>
+              <div class="help-text">
+                <div class="help-label">Téléphone</div>
+                <div class="help-value">+216 71 426 998</div>
+              </div>
+            </div>
+
+            <div class="help-item">
+              <i class="bi bi-envelope"></i>
+              <div class="help-text">
+                <div class="help-label">E-mail</div>
+                <div class="help-value">admin@cmr-group.tn</div>
+              </div>
+            </div>
+
+            <div class="help-item">
+              <i class="bi bi-geo-alt"></i>
+              <div class="help-text">
+                <div class="help-label">Adresse</div>
+                <div class="help-value">CMR Group Tunisie - Z.I. El Mghira - Fouchana Ben Arous</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <button class="btn btn-outline-secondary w-100" type="button" (click)="fermerContact()">
+              Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </div>

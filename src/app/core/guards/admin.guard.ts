@@ -14,7 +14,7 @@ export const adminGuard: CanActivateFn = () => {
         return false;
       }
       if (user.role !== 'admin') {
-        router.navigate(['/']);
+        router.navigate(['/public']);
         return false;
       }
       return true;

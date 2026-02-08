@@ -15,12 +15,6 @@ class ReclamationController {
         echo json_encode($ok ? "ok" : "erreur");
     }
 
-    public function addAnonyme() {
-        $contenu = trim($_POST['contenu']);
-        $ok = $this->model->addAnonyme($contenu);
-        echo json_encode($ok ? "ok" : "erreur");
-    }
-
     public function getAll() {
         echo json_encode($this->model->getAll());
     }

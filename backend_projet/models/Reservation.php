@@ -57,7 +57,7 @@ class Reservation {
                    s.id_s, s.nom AS salle_nom
             FROM reservation r
             JOIN salle s ON s.id_s = r.id_s
-            WHERE r.id_u = :id_u
+            WHERE r.id_u = :id_u AND (r.date_res > CURDATE()  OR (r.date_res = CURDATE() AND r.heure_fin > CURTIME()))
             ORDER BY r.date_res ASC, r.heure_deb ASC
         ";
         $r = $this->conn->prepare($sql);
@@ -163,11 +163,11 @@ class Reservation {
         return (int)$r->fetchColumn();
     }
 
-    public function deleteReservations() {
-        $sql = "DELETE FROM reservation WHERE date_res < CURDATE()  OR (date_res = CURDATE() AND heure_fin < CURTIME())";
-        $r = $this->conn->prepare($sql);
-        return $r->execute();
-    }
+    // public function deleteReservations() {
+    //     $sql = "DELETE FROM reservation WHERE date_res < CURDATE()  OR (date_res = CURDATE() AND heure_fin < CURTIME())";
+    //     $r = $this->conn->prepare($sql);
+    //     return $r->execute();
+    // }
 
     public function statsBySalle() {
         $sql = "

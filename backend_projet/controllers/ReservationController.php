@@ -6,7 +6,7 @@ class ReservationController {
 
     public function __construct() {
         $this->model = new Reservation();
-        $this->model->deleteReservations();
+        // $this->model->deleteReservations();
     }
 
     public function listByUser() {

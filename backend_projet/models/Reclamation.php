@@ -18,14 +18,6 @@ class Reclamation {
         ]);
     }
 
-    public function addAnonyme($contenu) {
-        $sql = "INSERT INTO reclamation(id_u, contenu) VALUES(NULL, :contenu)";
-        $r = $this->conn->prepare($sql);
-        return $r->execute([
-            ':contenu' => $contenu
-        ]);
-    }
-
     public function getAll() {
         $sql = "
             SELECT 
